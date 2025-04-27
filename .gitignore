@@ -38,6 +38,9 @@ env/
 *.bak2
 *.mp3
 *.wav
+users.json
+messages.json
+peers.json
 
 # Build files
 build/
