@@ -765,7 +765,7 @@ class OfficeMessenger:
                     badge = ft.Container(
                         content=ft.Text(
                             str(unread_count if unread_count < 100 else "99+"),
-                            color="#fff",
+                            color=current_theme["button_text_color"],
                             size=11,
                             weight=ft.FontWeight.BOLD,
                             text_align=ft.TextAlign.CENTER
@@ -857,7 +857,8 @@ class OfficeMessenger:
                         content=ft.Text(
                             "Select a user to start chatting",
                             italic=True,
-                            color="#9E9E9E",
+                            color=current_theme["text_color"],
+                            opacity=0.7,
                             size=16
                         ),
                         alignment=ft.alignment.center,
@@ -912,7 +913,8 @@ class OfficeMessenger:
                         ft.Text(
                             datetime.fromtimestamp(msg["timestamp"]).strftime("%H:%M"),
                             size=12,
-                            color="#E0E0E0" if is_from_me else "#757575"
+                            color=current_theme["message_text_sent"] if is_from_me else current_theme["message_text_received"],
+                            opacity=0.7
                         )
                     ], spacing=5)
                 else:
