@@ -61,18 +61,61 @@ officeipmess/
    pip install -r requirements.txt --no-cache-dir
    ```
 
-4. **Start the server**:
+4. **Start the server** (in Terminal 1):
    ```bash
+   # IMPORTANT: Activate virtual environment in this terminal first
+   source venv/bin/activate  # (macOS/Linux)
+   venv\Scripts\activate     # (Windows)
+   
    python comm_server.py
    ```
 
-5. **Run the application** (in a new terminal):
+5. **Run the application** (in Terminal 2):
    ```bash
-   # Don't forget to activate venv in the new terminal
+   # IMPORTANT: You must activate the virtual environment in this new terminal
    source venv/bin/activate  # (macOS/Linux)
    venv\Scripts\activate     # (Windows)
    
    python main.py
+   ```
+
+## Terminal Management
+
+### Multiple Terminal Requirements
+The application requires two separate terminals to run properly:
+
+1. **Server Terminal**:
+   - Must have virtual environment activated
+   - Must have all dependencies installed
+   - Runs the server process
+
+2. **Client Terminal**:
+   - Must be a separate terminal window
+   - Must have virtual environment activated
+   - Must have all dependencies installed
+   - Runs the client application
+
+### Terminal Setup Checklist
+Before running the application, ensure:
+
+1. Both terminals have:
+   - Virtual environment activated
+   - All dependencies installed
+   - Correct Python version
+   - Proper permissions
+
+2. Activation sequence:
+   ```bash
+   # For each new terminal:
+   cd officeipmess
+   source venv/bin/activate  # (macOS/Linux)
+   venv\Scripts\activate     # (Windows)
+   ```
+
+3. Verify installation:
+   ```bash
+   # In each terminal, verify dependencies
+   pip list
    ```
 
 ## Initial Setup
@@ -225,39 +268,3 @@ lsof -i :8001
 # Kill process using the port if needed
 kill -9 <PID>
 ```
-
-## Best Practices
-
-1. **Always use virtual environment**:
-   - Never install packages globally
-   - Create new venv for each project
-   - Keep venv inside project directory
-
-2. **Dependency Management**:
-   - Use `requirements.txt` for all installations
-   - Don't mix global and venv packages
-   - Keep dependencies updated
-
-3. **Python Version**:
-   - Use Python 3.8 or higher
-   - Check compatibility with `python --version`
-   - Use same Python version in venv as development
-
-## Security
-
-- Password hashing with Argon2
-- End-to-end encryption
-- Secure file handling
-- Environment variable protection
-
-## License
-
-MIT License - See LICENSE file for details
-
-## Support
-
-For support, please open an issue in the GitHub repository.
-
----
-
-*Disclaimer: This app is not responsible for any lost productivity, awkward office moments, or your boss finding out about your secret meme channel. Use at your own risk.* 

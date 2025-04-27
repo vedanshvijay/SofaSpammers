@@ -32,15 +32,22 @@ env/
 *.swo
 
 # Application specific
+*.json
 *.db
+*.sqlite
 *.log
-*.bak
-*.bak2
-*.mp3
-*.wav
-users.json
-messages.json
-peers.json
+notification.wav
+
+# User data and messages
+users/
+messages/
+data/
+*.data
+*.dat
+
+# OS specific
+.DS_Store
+Thumbs.db
 
 # Build files
 build/
