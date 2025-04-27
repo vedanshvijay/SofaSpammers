@@ -437,6 +437,35 @@ class OfficeMessenger:
                                 color=current_theme["text_color"],
                                 opacity=0.7,
                                 text_align=ft.TextAlign.CENTER,
+                            ),
+                            ft.Text(
+                                "© 2024 Vedansh Vijayvargia",
+                                size=16,
+                                weight=ft.FontWeight.BOLD,
+                                color=current_theme["primary_color"],
+                                opacity=0.9,
+                                text_align=ft.TextAlign.CENTER,
+                            ),
+                            ft.Text(
+                                "All rights reserved",
+                                size=12,
+                                color=current_theme["text_color"],
+                                opacity=0.7,
+                                text_align=ft.TextAlign.CENTER,
+                            ),
+                            ft.Text(
+                                "ved02vijay@gmail.com",
+                                size=12,
+                                color=current_theme["text_color"],
+                                opacity=0.7,
+                                text_align=ft.TextAlign.CENTER,
+                            ),
+                            ft.Text(
+                                "⚠️ Author credits are protected by copyright",
+                                size=10,
+                                color=current_theme["error_color"],
+                                opacity=0.7,
+                                text_align=ft.TextAlign.CENTER,
                             )
                         ], horizontal_alignment=ft.CrossAxisAlignment.CENTER),
                         margin=ft.margin.only(bottom=30),
@@ -816,12 +845,12 @@ class OfficeMessenger:
                             user,
                             size=15,
                             weight=ft.FontWeight.BOLD,
-                            color=current_theme["text_color"]
+                            color="#FFFFFF" if self.is_dark_theme else current_theme["text_color"]
                         ),
                         ft.Text(
                             "Online" if is_online else "Offline",
                             size=12,
-                            color=current_theme["text_color"],
+                            color="#FFFFFF" if self.is_dark_theme else current_theme["text_color"],
                             opacity=0.6
                         )
                     ], spacing=2, expand=True, alignment=ft.MainAxisAlignment.CENTER),

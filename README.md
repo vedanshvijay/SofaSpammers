@@ -1,6 +1,36 @@
 # Sofa Spammers 🛋️
 
+> © 2024 Vedansh Vijayvargia. All rights reserved.
+> 
+> Author: Vedansh Vijayvargia (ved02vijay@gmail.com)
+> GitHub: [vedanshvijay](https://github.com/vedanshvijay)
+> 
+> ⚠️ This application and its author information are protected by copyright. Unauthorized modification or removal of author credits is strictly prohibited.
+
 A modern, secure messaging app for your local network. Perfect for office communication, team collaboration, or just sharing memes with your coworkers.
+
+## Environment Configuration
+
+The application uses environment variables for configuration. Create a `.env` file in the root directory with the following variables:
+
+```env
+# Server Configuration
+PORT=8001
+HOST=0.0.0.0
+
+# Security Settings
+SECRET_KEY=your-secret-key-here
+ENCRYPTION_KEY=your-encryption-key-here
+
+# Database Settings
+DB_PATH=./data
+```
+
+### Important Notes:
+- The `.env` file is required for the application to run
+- Keep your secret keys secure and never commit them to version control
+- The application will create necessary directories if they don't exist
+- Default values will be used if environment variables are not set
 
 ## Project Structure
 ```
@@ -268,3 +298,68 @@ lsof -i :8001
 # Kill process using the port if needed
 kill -9 <PID>
 ```
+
+## Troubleshooting
+
+### Common Issues and Solutions
+
+1. **"Connection Refused" Error**
+   - Make sure the server is running before starting the client
+   - Check if the port isn't being used by another application
+   - Verify your firewall isn't blocking the connection
+
+2. **Audio Notifications Not Working**
+   - Ensure notification.wav file exists in the root directory
+   - Check system audio settings
+   - Verify file permissions
+
+3. **Database Issues**
+   - Check if the data directory exists and has write permissions
+   - Verify JSON files aren't corrupted
+   - Try deleting and recreating the data directory
+
+## Terminal Setup Guide (The Fun Way) 🎮
+
+Alright, fellow terminal warriors! 🎮 Here's how to set up your command-line battlestation for maximum messaging mayhem:
+
+### Terminal 1: The Server (Your Digital Bouncer) 🚪
+```bash
+# First, summon your virtual environment like a wizard
+source venv/bin/activate  # (macOS/Linux)
+# or
+venv\Scripts\activate     # (Windows)
+
+# Then, unleash the server beast
+python comm_server.py
+```
+
+### Terminal 2: The Sender (Your Digital Messenger) 📨
+```bash
+# In a new terminal, activate your virtual environment again
+# (Yes, we're creating a parallel universe)
+source venv/bin/activate  # (macOS/Linux)
+# or
+venv\Scripts\activate     # (Windows)
+
+# Launch the client like a boss
+python main.py
+```
+
+### Terminal 3: The Receiver (Your Digital Mailbox) 📬
+```bash
+# In yet another terminal (because why not?)
+# Activate the virtual environment one more time
+source venv/bin/activate  # (macOS/Linux)
+# or
+venv\Scripts\activate     # (Windows)
+
+# Launch another client instance
+python main.py
+```
+
+Pro Tips:
+- Keep these terminals open like your favorite tabs
+- Don't close them unless you want to break the magic
+- If something breaks, just blame the gremlins in your computer
+
+Remember: With great terminal power comes great responsibility... and lots of memes! 🚀
