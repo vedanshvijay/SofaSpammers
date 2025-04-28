@@ -1,4 +1,4 @@
-# Sofa Spammers 🛋️
+# Office IP Messenger 🛋️
 
 > © 2024 Vedansh Vijayvargia. All rights reserved.
 > 
