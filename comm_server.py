@@ -5,6 +5,7 @@ import uvicorn
 import asyncio
 from typing import Dict, List, Set
 import time
+import json
 
 app = FastAPI()
 
@@ -64,15 +65,23 @@ async def websocket_endpoint(websocket: WebSocket, username: str):
         if username in message_queues:
             while not message_queues[username].empty():
                 msg = await message_queues[username].get()
-                await websocket.send_json({"type": "message", **msg})
+                try:
+                    await websocket.send_json({"type": "message", **msg})
+                except Exception as e:
+                    print(f"Error sending queued message: {e}")
         while True:
-            data = await websocket.receive_json()
-            if data.get("type") == "typing":
-                if data.get("is_typing"):
-                    typing_users.add(username)
-                else:
-                    typing_users.discard(username)
-                await broadcast_typing()
+            try:
+                data = await websocket.receive_json()
+                if data.get("type") == "typing":
+                    if data.get("is_typing"):
+                        typing_users.add(username)
+                    else:
+                        typing_users.discard(username)
+                    await broadcast_typing()
+            except json.JSONDecodeError as e:
+                print(f"Invalid JSON received from {username}: {e}")
+            except Exception as e:
+                print(f"Error processing message from {username}: {e}")
     except WebSocketDisconnect:
         pass
     finally:

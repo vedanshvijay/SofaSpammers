@@ -5,6 +5,7 @@
 > Author: Vedansh Vijayvargia (ved02vijay@gmail.com)
 > GitHub: [vedanshvijay](https://github.com/vedanshvijay)
 > 
+
 > ⚠️ This application and its author information are protected by copyright. Unauthorized modification or removal of author credits is strictly prohibited.
 
 A modern, secure messaging app for your local network. Perfect for office communication, team collaboration, or just sharing memes with your coworkers.

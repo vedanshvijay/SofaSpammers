@@ -33,17 +33,24 @@ class CommClient:
                     self.ws = ws
                     print(f"Connected to websocket as {self.username}")
                     async for msg in ws:
-                        print("Raw websocket message:", msg)
-                        data = json.loads(msg)
-                        if data.get("type") == "message" and self.on_message:
-                            print("Calling on_message handler")
-                            await self.on_message(data)
-                        elif data.get("type") == "status" and self.on_status:
-                            print("Calling on_status handler")
-                            await self.on_status(data)
-                        elif data.get("type") == "typing" and self.on_typing:
-                            print("Calling on_typing handler")
-                            await self.on_typing(data)
+                        try:
+                            print("Raw websocket message:", msg[:100] + "..." if len(msg) > 100 else msg)  # Log first 100 chars
+                            data = json.loads(msg)
+                            if data.get("type") == "message" and self.on_message:
+                                print("Calling on_message handler")
+                                await self.on_message(data)
+                            elif data.get("type") == "status" and self.on_status:
+                                print("Calling on_status handler")
+                                await self.on_status(data)
+                            elif data.get("type") == "typing" and self.on_typing:
+                                print("Calling on_typing handler")
+                                await self.on_typing(data)
+                        except json.JSONDecodeError as e:
+                            print(f"JSON parsing error: {e}")
+                            print(f"Message content: {msg[:100]}...")  # Log first 100 chars
+                        except Exception as e:
+                            print(f"Error processing message: {e}")
+                            print(f"Message content: {msg[:100]}...")  # Log first 100 chars
             except Exception as e:
                 print(f"Websocket error: {e}. Reconnecting in {self._reconnect_delay}s...")
                 await asyncio.sleep(self._reconnect_delay)
