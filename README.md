@@ -8,7 +8,7 @@
 
 > ⚠️ This application and its author information are protected by copyright. Unauthorized modification or removal of author credits is strictly prohibited.
 
-A modern, secure messaging app for your local network. Perfect for office communication, team collaboration, or just sharing memes with your coworkers.
+A modern, secure messaging app for your local network. Perfect for office communication, team collaboration, or just bitching with your coworkers.
 
 ## Environment Configuration
 
@@ -61,7 +61,7 @@ officeipmess/
 ## Features
 
 - **Real-time messaging**: Instant communication without the wait
-- **File sharing**: Share files and memes at lightning speed
+- **File sharing**: Share files at lightning speed
 - **Audio notifications**: Stay on top of important messages
 - **End-to-end encryption**: Your conversations stay private
 - **Dark/light theme support**: Choose your preferred style
