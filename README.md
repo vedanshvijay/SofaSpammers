@@ -1,4 +1,4 @@
-# Office IP Messenger 🛋️
+# Office IP Messenger(Planet Pulse) 🛋️
 
 > © 2025 Vedansh Vijayvargia. All rights reserved.
 > 
